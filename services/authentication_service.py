@@ -59,13 +59,4 @@ class AuthenticationService:
             data.append(user_dict)
         return data
     
-     @staticmethod
-    def verify_user():
-        auth = request.authorization
-        if auth and auth.password == 'password':
-            token = jwt.encode( {'user': auth.username, 'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=30)})
-            response=({'token': token.encode('UTF-8')})
-            return response
-        else:
-            return({"Message":"User Not Found"})
-
+   
